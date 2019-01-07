@@ -1,8 +1,8 @@
 {
-  "name": "react-jsonschema-form",
-  "version": "2.0.0-alpha.1",
+  "name": "react-jsonschema-form-bs4",
+  "version": "1.0.6",
   "private": true,
-  "description": "monorepo for react-jsonschema-form and its themes",
+  "description": "A simple React component capable of building HTML forms out of a JSON schema.",
   "scripts": {
     "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
@@ -25,6 +25,16 @@
     "semi": true,
     "tabWidth": 2
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterkelly/react-jsonschema-form-bs4.git"
+  },
+  "author": "Peter Kelly <peter@pmkelly.net>",
+  "keywords": [
+    "react",
+    "form",
+    "json-schema"
+  ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/mozilla-services/react-jsonschema-form#readme"
+  "homepage": "https://github.com/peterkelly/react-jsonschema-form-bs4#readme"
 }
