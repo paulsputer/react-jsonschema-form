@@ -45,13 +45,13 @@ function DefaultArrayItem(props) {
     fontWeight: "bold",
   };
   return (
-    <div key={props.key} className={props.className}>
-      <div className={props.hasToolbar ? "col-xs-9" : "col-xs-12"}>
+    <div key={props.key} className={"row " + props.className}>
+      <div className={props.hasToolbar ? "col-9" : "col-12"}>
         {props.children}
       </div>
 
       {props.hasToolbar && (
-        <div className="col-xs-3 array-item-toolbox">
+        <div className="col-3 array-item-toolbox">
           <div
             className="btn-group"
             style={{
@@ -60,6 +60,7 @@ function DefaultArrayItem(props) {
             }}>
             {(props.hasMoveUp || props.hasMoveDown) && (
               <IconButton
+                type="outline-dark"
                 icon="arrow-up"
                 className="array-item-move-up"
                 tabIndex="-1"
@@ -71,6 +72,7 @@ function DefaultArrayItem(props) {
 
             {(props.hasMoveUp || props.hasMoveDown) && (
               <IconButton
+                type="outline-dark"
                 icon="arrow-down"
                 className="array-item-move-down"
                 tabIndex="-1"
@@ -85,7 +87,7 @@ function DefaultArrayItem(props) {
             {props.hasRemove && (
               <IconButton
                 type="danger"
-                icon="remove"
+                icon="times"
                 className="array-item-remove"
                 tabIndex="-1"
                 style={btnStyle}
@@ -120,7 +122,7 @@ function DefaultFixedArrayFieldTemplate(props) {
       )}
 
       <div
-        className="row array-item-list"
+        className="array-item-list"
         key={`array-item-list-${props.idSchema.$id}`}>
         {props.items && props.items.map(DefaultArrayItem)}
       </div>
@@ -159,7 +161,7 @@ function DefaultNormalArrayFieldTemplate(props) {
       )}
 
       <div
-        className="row array-item-list"
+        className="array-item-list"
         key={`array-item-list-${props.idSchema.$id}`}>
         {props.items && props.items.map(p => DefaultArrayItem(p))}
       </div>

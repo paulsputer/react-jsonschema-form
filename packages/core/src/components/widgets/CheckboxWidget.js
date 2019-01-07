@@ -55,8 +55,10 @@ function CheckboxWidget(props) {
       {schema.description && (
         <DescriptionField description={schema.description} />
       )}
-      <label>
+
+      <div className="form-check">
         <input
+          className="form-check-input"
           type="checkbox"
           id={id}
           checked={typeof value === "undefined" ? false : value}
@@ -67,8 +69,10 @@ function CheckboxWidget(props) {
           onBlur={onBlur && (event => onBlur(id, event.target.checked))}
           onFocus={onFocus && (event => onFocus(id, event.target.checked))}
         />
-        <span>{label}</span>
-      </label>
+        <label className="form-check-label" htmlFor="defaultCheck1">
+          {label}
+        </label>
+      </div>
     </div>
   );
 }

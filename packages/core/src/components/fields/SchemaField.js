@@ -65,7 +65,7 @@ function Label(props) {
     return null;
   }
   return (
-    <label className="control-label" htmlFor={id}>
+    <label htmlFor={id}>
       {label}
       {required && <span className="required">{REQUIRED_FIELD_SYMBOL}</span>}
     </label>
@@ -317,7 +317,7 @@ function SchemaFieldRender(props) {
     "form-group",
     "field",
     `field-${type}`,
-    errors && errors.length > 0 ? "field-error has-error has-danger" : "",
+    errors && errors.length > 0 ? "field-error text-danger" : "",
     uiSchema.classNames,
   ]
     .join(" ")

@@ -25,32 +25,36 @@ function CheckboxesWidget(props) {
         const disabledCls =
           disabled || itemDisabled || readonly ? "disabled" : "";
         const checkbox = (
-          <span>
-            <input
-              type="checkbox"
-              id={`${id}_${index}`}
-              checked={checked}
-              disabled={disabled || itemDisabled || readonly}
-              autoFocus={autofocus && index === 0}
-              onChange={event => {
-                const all = enumOptions.map(({ value }) => value);
-                if (event.target.checked) {
-                  onChange(selectValue(option.value, value, all));
-                } else {
-                  onChange(deselectValue(option.value, value));
-                }
-              }}
-            />
-            <span>{option.label}</span>
-          </span>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id={`${id}_${index}`}
+            checked={checked}
+            disabled={disabled || readonly}
+            autoFocus={autofocus && index === 0}
+            onChange={event => {
+              const all = enumOptions.map(({ value }) => value);
+              if (event.target.checked) {
+                onChange(selectValue(option.value, value, all));
+              } else {
+                onChange(deselectValue(option.value, value));
+              }
+            }}
+          />
         );
         return inline ? (
-          <label key={index} className={`checkbox-inline ${disabledCls}`}>
+          <div className={`form-check-inline ${disabledCls}`}>
             {checkbox}
-          </label>
+            <label className="form-check-label" htmlFor={index}>
+              {option.label}
+            </label>
+          </div>
         ) : (
-          <div key={index} className={`checkbox ${disabledCls}`}>
-            <label>{checkbox}</label>
+          <div className={`form-check ${disabledCls}`}>
+            {checkbox}
+            <label className="form-check-label" htmlFor={index}>
+              {option.label}
+            </label>
           </div>
         );
       })}
