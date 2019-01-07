@@ -3,6 +3,7 @@
   "version": "2.0.0-alpha.1",
   "description": "A simple React component capable of building HTML forms out of a JSON schema.",
   "scripts": {
+    "build:readme": "toctoc README.md -w",
     "build:lib": "rimraf lib && cross-env NODE_ENV=production babel -d lib/ src/",
     "build:dist": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.dist.js",
     "build:playground": "rimraf build && cross-env NODE_ENV=production webpack --config webpack.config.prod.js && cp playground/index.prod.html build/index.html",
@@ -29,9 +30,11 @@
     ]
   },
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "types"
   ],
   "engineStrict": false,
   "engines": {
@@ -42,10 +45,13 @@
     "react": ">=16"
   },
   "dependencies": {
+    "@types/json-schema": "*",
+    "@types/react": "*",
     "@babel/runtime-corejs2": "^7.4.5",
     "ajv": "^6.7.0",
     "core-js": "^2.5.7",
     "lodash": "^4.17.15",
+    "lodash.topath": "^4.5.2",
     "prop-types": "^15.7.2",
     "react-app-polyfill": "^1.0.4",
     "react-is": "^16.9.0",
@@ -91,6 +97,7 @@
     "nyc": "^13.2.0",
     "prettier": "^1.15.1",
     "react": "^16.9.0",
+    "react-addons-test-utils": "^15.3.2",
     "react-codemirror2": "^4.1.0",
     "react-dom": "^16.9.0",
     "react-monaco-editor": "^0.26.2",
@@ -101,6 +108,7 @@
     "rimraf": "^2.5.4",
     "sinon": "^1.17.6",
     "style-loader": "^0.13.1",
+    "toctoc": "^0.2.3",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",
