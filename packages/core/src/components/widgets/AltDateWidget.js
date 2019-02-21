@@ -137,7 +137,7 @@ class AltDateWidget extends Component {
     return (
       <ul className="list-inline">
         {this.dateElementProps.map((elemProps, i) => (
-          <li key={i}>
+          <li key={i} className="list-inline-item">
             <DateElement
               rootId={id}
               select={this.onChange}
