@@ -30,7 +30,7 @@ function CheckboxesWidget(props) {
             type="checkbox"
             id={`${id}_${index}`}
             checked={checked}
-            disabled={disabled || readonly}
+            disabled={disabled || itemDisabled || readonly}
             autoFocus={autofocus && index === 0}
             onChange={event => {
               const all = enumOptions.map(({ value }) => value);
@@ -43,14 +43,14 @@ function CheckboxesWidget(props) {
           />
         );
         return inline ? (
-          <div className={`form-check-inline ${disabledCls}`}>
+          <div className={`form-check-inline ${disabledCls}`} key={index}>
             {checkbox}
             <label className="form-check-label" htmlFor={index}>
               {option.label}
             </label>
           </div>
         ) : (
-          <div className={`form-check ${disabledCls}`}>
+          <div className={`form-check ${disabledCls}`} key={index}>
             {checkbox}
             <label className="form-check-label" htmlFor={index}>
               {option.label}
