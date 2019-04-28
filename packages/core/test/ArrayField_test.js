@@ -681,7 +681,7 @@ describe("ArrayField", () => {
       }
 
       expect(
-        node.querySelectorAll(".has-error .error-detail")
+        node.querySelectorAll(".field-error .text-danger")
       ).to.have.length.of(1);
 
       const dropBtns = node.querySelectorAll(".array-item-remove");
@@ -689,7 +689,7 @@ describe("ArrayField", () => {
       Simulate.click(dropBtns[0]);
 
       expect(
-        node.querySelectorAll(".has-error .error-detail")
+        node.querySelectorAll(".field-error .text-danger")
       ).to.have.length.of(0);
     });
 
@@ -1065,7 +1065,7 @@ describe("ArrayField", () => {
         const { node } = createFormComponent({ schema, uiSchema });
 
         const labels = [].map.call(
-          node.querySelectorAll(".checkbox label"),
+          node.querySelectorAll(".form-check label"),
           node => node.textContent
         );
         expect(labels).eql(["foo", "bar", "fuzz"]);
@@ -1118,7 +1118,9 @@ describe("ArrayField", () => {
           },
         });
 
-        expect(node.querySelectorAll(".checkbox-inline")).to.have.length.of(3);
+        expect(node.querySelectorAll(".form-check-inline")).to.have.length.of(
+          3
+        );
       });
 
       it("should pass rawErrors down to custom widgets", () => {
@@ -1458,9 +1460,7 @@ describe("ArrayField", () => {
         },
         formData: [1, 2, "bar"],
       });
-      const label = node.querySelector(
-        "fieldset .field-string label.control-label"
-      );
+      const label = node.querySelector("fieldset .field-string label");
       expect(label.textContent).eql("Custom title*");
     });
 

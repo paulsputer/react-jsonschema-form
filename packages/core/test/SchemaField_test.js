@@ -320,7 +320,7 @@ describe("SchemaField", () => {
       Simulate.submit(node);
 
       const matches = node.querySelectorAll(
-        "form .form-group .form-group .text-danger"
+        "form .form-group .form-group li.text-danger"
       );
       expect(matches).to.have.length.of(1);
       expect(matches[0].textContent).to.contain("test");
